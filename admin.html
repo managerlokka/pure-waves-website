@@ -152,6 +152,121 @@
             padding: 40px;
             color: var(--text-secondary);
         }
+
+        /* Thumbnail Picker Modal */
+        .thumb-picker-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .thumb-picker-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .thumb-picker-modal {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(0, 224, 192, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .thumb-picker-overlay.active .thumb-picker-modal {
+            transform: scale(1);
+        }
+        .thumb-picker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+        .thumb-picker-header h2 {
+            color: var(--accent-color);
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        .thumb-picker-close {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .thumb-picker-close:hover {
+            background: rgba(255,0,0,0.3);
+            border-color: rgba(255,0,0,0.5);
+        }
+        .thumb-picker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+        .thumb-picker-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            aspect-ratio: 16/9;
+        }
+        .thumb-picker-item:hover {
+            border-color: var(--accent-color);
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 224, 192, 0.3);
+        }
+        .thumb-picker-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .thumb-picker-item .thumb-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.75);
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 6px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .browse-thumb-btn {
+            background: rgba(0, 224, 192, 0.15);
+            border: 1px solid rgba(0, 224, 192, 0.3);
+            color: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            margin-left: 8px;
+        }
+        .browse-thumb-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
     </style>
 </head>
 <body>
@@ -194,6 +309,19 @@
 
         <div class="video-list" id="videoList">
             <!-- Videos rendered here -->
+        </div>
+    </div>
+
+    <!-- Thumbnail Picker Modal -->
+    <div class="thumb-picker-overlay" id="thumbPickerOverlay" onclick="if(event.target===this) closeThumbPicker()">
+        <div class="thumb-picker-modal">
+            <div class="thumb-picker-header">
+                <h2>📸 Select a Thumbnail</h2>
+                <button class="thumb-picker-close" onclick="closeThumbPicker()">✕ Close</button>
+            </div>
+            <div class="thumb-picker-grid" id="thumbPickerGrid">
+                <!-- Thumbnails loaded here -->
+            </div>
         </div>
     </div>
 
@@ -290,7 +418,10 @@
                         </div>
                         <div class="form-group" style="grid-column: 1 / -1;">
                             <label>Thumbnail Image URL</label>
-                            <input type="text" value="${video.thumbnail || ''}" onchange="updateVideo(${index}, 'thumbnail', this.value); renderVideos();">
+                            <div style="display: flex; align-items: center;">
+                                <input type="text" id="thumb-input-${index}" value="${video.thumbnail || ''}" onchange="updateVideo(${index}, 'thumbnail', this.value); renderVideos();" style="flex: 1;">
+                                <button class="browse-thumb-btn" onclick="openThumbPicker(${index})">📸 Browse</button>
+                            </div>
                         </div>
                         <div class="actions">
                             <button class="btn btn-danger" onclick="deleteVideo(${index})">🗑️ Delete</button>
@@ -378,6 +509,54 @@
                     notif.style.transform = 'translateX(200%)';
                 }, 3000);
             }
+        }
+
+        // ===== Thumbnail Picker =====
+        let availableThumbs = [];
+        let activePickerIndex = -1;
+
+        // Load thumbnail list
+        fetch('/thumbnails.json?t=' + new Date().getTime())
+            .then(r => r.json())
+            .then(data => { availableThumbs = data; })
+            .catch(err => console.error("Could not load thumbnails.json:", err));
+
+        function openThumbPicker(videoIndex) {
+            activePickerIndex = videoIndex;
+            const grid = document.getElementById('thumbPickerGrid');
+            grid.innerHTML = '';
+
+            if (availableThumbs.length === 0) {
+                grid.innerHTML = '<p style="color: var(--text-secondary); text-align: center; grid-column: 1/-1;">No thumbnails found. Add images to your project folder and update thumbnails.json.</p>';
+            }
+
+            availableThumbs.forEach(thumb => {
+                const item = document.createElement('div');
+                item.className = 'thumb-picker-item';
+                item.innerHTML = `
+                    <img src="${thumb}" alt="${thumb}" onerror="this.src='https://via.placeholder.com/200x112?text=Not+Found'">
+                    <div class="thumb-name">${thumb}</div>
+                `;
+                item.addEventListener('click', () => selectThumb(thumb));
+                grid.appendChild(item);
+            });
+
+            document.getElementById('thumbPickerOverlay').classList.add('active');
+        }
+
+        function closeThumbPicker() {
+            document.getElementById('thumbPickerOverlay').classList.remove('active');
+            activePickerIndex = -1;
+        }
+
+        function selectThumb(thumbName) {
+            if (activePickerIndex >= 0) {
+                updateVideo(activePickerIndex, 'thumbnail', thumbName);
+                const input = document.getElementById('thumb-input-' + activePickerIndex);
+                if (input) input.value = thumbName;
+                renderVideos();
+            }
+            closeThumbPicker();
         }
     </script>
 </body>
