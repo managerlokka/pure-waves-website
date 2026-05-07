@@ -1306,7 +1306,13 @@
     </div>
 
     <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        // Initialize Supabase
+        const supabaseUrl = 'https://iuvbbitcssilphdghaab.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml1dmJiaXRjc3NpbHBoZGdoYWFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxNjQ1MTUsImV4cCI6MjA5Mzc0MDUxNX0.irJZvYaVCgHR5XAPdBMO-JIAS0JlFBnXrMpEbmmh4xo';
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
         document.addEventListener('DOMContentLoaded', () => {
             
             // --- Sticky Header ---
@@ -1342,10 +1348,13 @@
             const closeModalBtn = document.getElementById('closeModal');
             const videoIframe = document.getElementById('videoIframe');
 
-            // Load Dynamic Settings (Social Links)
-            fetch('/settings.json?t=' + new Date().getTime())
-                .then(res => res.json())
-                .then(settings => {
+            // Load Dynamic Settings (Social Links) from Supabase
+            supabase.from('settings').select('*').limit(1).single().then(({ data: settings, error }) => {
+                if (error) {
+                    console.error("Error loading settings from Supabase:", error);
+                    return;
+                }
+                if (settings) {
                     if (settings.whatsapp) {
                         const cleanWa = settings.whatsapp.replace(/\D/g, '');
                         document.querySelectorAll('.dynamic-whatsapp').forEach(link => {
@@ -1370,19 +1379,21 @@
                     if (settings.youtube) {
                         document.querySelectorAll('.dynamic-youtube').forEach(link => link.href = settings.youtube);
                     }
-                })
-                .catch(err => console.error("Error loading settings:", err));
+                }
+            });
 
-            // Load Videos
-            fetch('/data.json?t=' + new Date().getTime())
-                .then(res => res.json())
-                .then(videos => {
+            // Load Videos from Supabase
+            supabase.from('videos').select('*').order('id', { ascending: true }).then(({ data: videos, error }) => {
+                if (error) {
+                    console.error("Error loading videos from Supabase:", error);
+                    return;
+                }
                     grid.innerHTML = ''; // Clear fallback
                     videos.forEach(video => {
                         const card = document.createElement('div');
                         card.className = 'video-card';
                         card.setAttribute('data-category', video.category);
-                        card.setAttribute('data-video', video.videoUrl);
+                        card.setAttribute('data-video', video.video_url || video.videoUrl);
 
                         let categoryText = '';
                         let categoryTextSi = '';
@@ -1407,7 +1418,7 @@
 
                         // Add modal open event
                         card.addEventListener('click', () => {
-                            let embedUrl = video.videoUrl;
+                            let embedUrl = video.video_url || video.videoUrl;
                             // Auto-convert standard Google Drive links to embeddable preview links
                             if (embedUrl.includes('drive.google.com/file/d/')) {
                                 const match = embedUrl.match(/file\/d\/([a-zA-Z0-9_-]+)/);
@@ -1425,8 +1436,7 @@
 
                     // Setup Filtering logic after cards are loaded
                     setupFiltering();
-                })
-                .catch(err => console.error("Error loading videos:", err));
+            });
 
             function setupFiltering() {
                 const filterBtns = document.querySelectorAll('.filter-btn');
