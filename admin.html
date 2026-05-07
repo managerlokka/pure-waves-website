@@ -201,12 +201,12 @@
     <script>
         const supabaseUrl = 'https://iuvbbitcssilphdghaab.supabase.co';
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml1dmJiaXRjc3NpbHBoZGdoYWFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxNjQ1MTUsImV4cCI6MjA5Mzc0MDUxNX0.irJZvYaVCgHR5XAPdBMO-JIAS0JlFBnXrMpEbmmh4xo';
-        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+        const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
         let videos = [];
 
         // Load settings
-        supabase.from('settings').select('*').limit(1).single().then(({ data, error }) => {
+        supabaseClient.from('settings').select('*').limit(1).single().then(({ data, error }) => {
             if (data) {
                 document.getElementById('setting-whatsapp').value = data.whatsapp || '';
                 document.getElementById('setting-facebook').value = data.facebook || '';
@@ -222,7 +222,7 @@
                 youtube: document.getElementById('setting-youtube').value
             };
             
-            const { error } = await supabase.from('settings').upsert(settings);
+            const { error } = await supabaseClient.from('settings').upsert(settings);
             
             if (!error) {
                 const notif = document.getElementById('notification');
@@ -238,7 +238,7 @@
         }
 
         // Load videos on start
-        supabase.from('videos').select('*').order('id', { ascending: true }).then(({ data, error }) => {
+        supabaseClient.from('videos').select('*').order('id', { ascending: true }).then(({ data, error }) => {
             if (error) {
                 console.error("Error loading videos:", error);
                 alert("Failed to load videos from Supabase.");
@@ -323,7 +323,7 @@
             if(confirm("Are you sure you want to delete this video?")) {
                 const video = videos[index];
                 if (video.id) {
-                    await supabase.from('videos').delete().eq('id', video.id);
+                    await supabaseClient.from('videos').delete().eq('id', video.id);
                 }
                 videos.splice(index, 1);
                 renderVideos();
@@ -347,10 +347,10 @@
                     
                     let error;
                     if (video.id) {
-                        const res = await supabase.from('videos').update(payload).eq('id', video.id);
+                        const res = await supabaseClient.from('videos').update(payload).eq('id', video.id);
                         error = res.error;
                     } else {
-                        const res = await supabase.from('videos').insert(payload);
+                        const res = await supabaseClient.from('videos').insert(payload);
                         error = res.error;
                     }
                     
@@ -368,7 +368,7 @@
                 alert('Error saving some videos. Check console.');
             } else {
                 // Reload clean state
-                const { data } = await supabase.from('videos').select('*').order('id', { ascending: true });
+                const { data } = await supabaseClient.from('videos').select('*').order('id', { ascending: true });
                 videos = data || [];
                 renderVideos();
                 

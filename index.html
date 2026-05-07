@@ -1311,7 +1311,7 @@
         // Initialize Supabase
         const supabaseUrl = 'https://iuvbbitcssilphdghaab.supabase.co';
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml1dmJiaXRjc3NpbHBoZGdoYWFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxNjQ1MTUsImV4cCI6MjA5Mzc0MDUxNX0.irJZvYaVCgHR5XAPdBMO-JIAS0JlFBnXrMpEbmmh4xo';
-        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+        const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
         document.addEventListener('DOMContentLoaded', () => {
             
@@ -1349,7 +1349,7 @@
             const videoIframe = document.getElementById('videoIframe');
 
             // Load Dynamic Settings (Social Links) from Supabase
-            supabase.from('settings').select('*').limit(1).single().then(({ data: settings, error }) => {
+            supabaseClient.from('settings').select('*').limit(1).single().then(({ data: settings, error }) => {
                 if (error) {
                     console.error("Error loading settings from Supabase:", error);
                     return;
@@ -1383,7 +1383,7 @@
             });
 
             // Load Videos from Supabase
-            supabase.from('videos').select('*').order('id', { ascending: true }).then(({ data: videos, error }) => {
+            supabaseClient.from('videos').select('*').order('id', { ascending: true }).then(({ data: videos, error }) => {
                 if (error) {
                     console.error("Error loading videos from Supabase:", error);
                     return;
