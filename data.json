@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Sindagana",
+    "artist": "Pure Waves Original",
+    "category": "music-video",
+    "thumbnail": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop",
+    "videoUrl": "https://drive.google.com/file/d/1tuFBuoHZioxVNz173dVdJ0Ao5tjyMpFu/view?usp=sharing",
+    "badge": ""
+  },
+  {
+    "id": 2,
+    "title": "Summer Vibes",
+    "artist": "Artist: DJ Khaled",
+    "category": "lyric-video",
+    "thumbnail": "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=1000&auto=format&fit=crop",
+    "videoUrl": "https://drive.google.com/file/d/YOUR_DRIVE_FILE_ID/preview",
+    "badge": ""
+  },
+  {
+    "id": 3,
+    "title": "Urban Symphony",
+    "artist": "Artist: The City Lights",
+    "category": "music-video",
+    "thumbnail": "https://images.unsplash.com/photo-1493225457124-a1a2a5f5f9af?q=80&w=1000&auto=format&fit=crop",
+    "videoUrl": "https://drive.google.com/file/d/YOUR_DRIVE_FILE_ID/preview",
+    "badge": ""
+  },
+  {
+    "id": 4,
+    "title": "Making of 'Neon Dreams'",
+    "artist": "Pure Waves Original",
+    "category": "bts",
+    "thumbnail": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000&auto=format&fit=crop",
+    "videoUrl": "https://drive.google.com/file/d/YOUR_DRIVE_FILE_ID/preview",
+    "badge": ""
+  },
+  {
+    "id": 5,
+    "title": "Summer Vibes",
+    "artist": "Artist: DJ Khaled",
+    "category": "lyric-video",
+    "thumbnail": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1000&auto=format&fit=crop",
+    "videoUrl": "https://drive.google.com/file/d/YOUR_DRIVE_FILE_ID/preview",
+    "badge": ""
+  },
+  {
+    "id": 6,
+    "title": "Urban Symphony",
+    "artist": "Artist: The City Lights",
+    "category": "music-video",
+    "thumbnail": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1000&auto=format&fit=crop",
+    "videoUrl": "https://drive.google.com/file/d/YOUR_DRIVE_FILE_ID/preview",
+    "badge": "✨ AI Generated"
+  }
+]
