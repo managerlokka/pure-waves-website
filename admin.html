@@ -303,6 +303,26 @@
             </div>
         </div>
 
+        <div style="background-color: var(--bg-secondary); border: 1px solid rgba(0, 224, 192, 0.1); border-radius: 8px; padding: 20px; margin-bottom: 40px;">
+            <h2 style="margin-top: 0; color: var(--accent-color); font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">💰 Pricing Settings</h2>
+            <div class="video-details" style="grid-template-columns: 1fr 1fr;">
+                <div class="form-group">
+                    <label>🎯 Advertising Video Price (Rs.)</label>
+                    <input type="number" id="setting-ad-price" placeholder="5000" min="0" style="font-size: 1.1rem; font-weight: 600;">
+                    <span style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">30 Sec Ad package price</span>
+                </div>
+                <div class="form-group">
+                    <label>🎵 Music Video Price (Rs.)</label>
+                    <input type="number" id="setting-mv-price" placeholder="7500" min="0" style="font-size: 1.1rem; font-weight: 600;">
+                    <span style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">30 Sec Music Video package price</span>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">💡 Prices update instantly on the live site after saving</span>
+                <button class="btn" onclick="savePricing()">💰 Save Prices</button>
+            </div>
+        </div>
+
         <div style="margin-bottom: 20px;">
             <button class="btn" onclick="addVideo()">+ Add New Video</button>
         </div>
@@ -339,6 +359,8 @@
                 document.getElementById('setting-whatsapp').value = data.whatsapp || '';
                 document.getElementById('setting-facebook').value = data.facebook || '';
                 document.getElementById('setting-youtube').value = data.youtube || '';
+                document.getElementById('setting-ad-price').value = data.ad_price || 5000;
+                document.getElementById('setting-mv-price').value = data.music_video_price || 7500;
             }
         });
 
@@ -362,6 +384,28 @@
                 }, 3000);
             } else {
                 alert('Error saving settings: ' + error.message);
+            }
+        }
+
+        async function savePricing() {
+            const settings = {
+                id: 1,
+                ad_price: parseInt(document.getElementById('setting-ad-price').value) || 5000,
+                music_video_price: parseInt(document.getElementById('setting-mv-price').value) || 7500
+            };
+            
+            const { error } = await supabaseClient.from('settings').upsert(settings);
+            
+            if (!error) {
+                const notif = document.getElementById('notification');
+                notif.textContent = "Prices Saved!";
+                notif.style.transform = 'translateX(0)';
+                setTimeout(() => {
+                    notif.style.transform = 'translateX(200%)';
+                    setTimeout(() => notif.textContent = "Changes Saved!", 300);
+                }, 3000);
+            } else {
+                alert('Error saving pricing: ' + error.message);
             }
         }
 
@@ -405,7 +449,7 @@
                             <select onchange="updateVideo(${index}, 'category', this.value)">
                                 <option value="music-video" ${video.category === 'music-video' ? 'selected' : ''}>Music Video</option>
                                 <option value="lyric-video" ${video.category === 'lyric-video' ? 'selected' : ''}>Lyric Video</option>
-                                <option value="bts" ${video.category === 'bts' ? 'selected' : ''}>Behind the Scenes</option>
+                                <option value="lip-sync" ${video.category === 'lip-sync' ? 'selected' : ''}>Lip Sync Music Video</option>
                             </select>
                         </div>
                         <div class="form-group">

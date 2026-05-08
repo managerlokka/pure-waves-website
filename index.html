@@ -1023,7 +1023,7 @@
                 <button class="filter-btn active" data-filter="all" data-en="All" data-si="සියල්ල">All</button>
                 <button class="filter-btn" data-filter="music-video" data-en="Music Video" data-si="සංගීත වීඩියෝ">Music Video</button>
                 <button class="filter-btn" data-filter="lyric-video" data-en="Lyric Video" data-si="ගීත වීඩියෝ">Lyric Video</button>
-                <button class="filter-btn" data-filter="bts" data-en="Behind the Scenes" data-si="තිර පිටුපස">Behind the Scenes</button>
+                <button class="filter-btn" data-filter="lip-sync" data-en="Lip Sync Music Video" data-si="තොල් සමමුහුර්ත සංගීත වීඩියෝ">Lip Sync Music Video</button>
             </div>
 
             <div class="portfolio-grid" id="portfolio-grid">
@@ -1049,7 +1049,7 @@
                 <div class="pricing-card" style="display: flex; flex-direction: column;">
                     <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🎯 Advertising Videos" data-si="🎯 ප්‍රචාරණ වීඩියෝ">🎯 Advertising Videos</h3>
                     <h4 class="pricing-title" data-en="30 Sec Ad" data-si="තත්පර 30 දැන්වීම">30 Sec Ad</h4>
-                    <div class="pricing-price">Rs. 5,000</div>
+                    <div class="pricing-price" id="ad-price-display">Rs. 5,000</div>
                     <ul class="pricing-features" style="flex-grow: 1;">
                         <li data-en="1080p Full HD" data-si="1080p පූර්ණ HD">1080p Full HD</li>
                         <li data-en="Color Graded" data-si="වර්ණ ශ්‍රේණිගත කිරීම">Color Graded</li>
@@ -1063,7 +1063,7 @@
                 <div class="pricing-card" style="display: flex; flex-direction: column;">
                     <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🎵 Music Videos" data-si="🎵 සංගීත වීඩියෝ">🎵 Music Videos</h3>
                     <h4 class="pricing-title" data-en="30 Sec Music Video" data-si="තත්පර 30 සංගීත වීඩියෝව">30 Sec Music Video</h4>
-                    <div class="pricing-price">Rs. 7,500</div>
+                    <div class="pricing-price" id="mv-price-display">Rs. 7,500</div>
                     <ul class="pricing-features" style="flex-grow: 1;">
                         <li data-en="1080p Full HD + Color Grade" data-si="1080p පූර්ණ HD + වර්ණ ශ්‍රේණිගත කිරීම">1080p Full HD + Color Grade</li>
                         <li data-en="Lip Sync Included" data-si="තොල් සමමුහුර්තකරණය ඇතුළත් වේ">Lip Sync Included</li>
@@ -1379,6 +1379,14 @@
                     if (settings.youtube) {
                         document.querySelectorAll('.dynamic-youtube').forEach(link => link.href = settings.youtube);
                     }
+                    // Load Dynamic Pricing
+                    const adPrice = settings.ad_price || 5000;
+                    const mvPrice = settings.music_video_price || 7500;
+                    const formatPrice = (num) => 'Rs. ' + Number(num).toLocaleString();
+                    const adPriceEl = document.getElementById('ad-price-display');
+                    const mvPriceEl = document.getElementById('mv-price-display');
+                    if (adPriceEl) adPriceEl.textContent = formatPrice(adPrice);
+                    if (mvPriceEl) mvPriceEl.textContent = formatPrice(mvPrice);
                 }
             });
 
@@ -1399,7 +1407,7 @@
                         let categoryTextSi = '';
                         if(video.category === 'music-video') { categoryText = 'Music Video'; categoryTextSi = 'සංගීත වීඩියෝ'; }
                         else if(video.category === 'lyric-video') { categoryText = 'Lyric Video'; categoryTextSi = 'ගීත වීඩියෝ'; }
-                        else if(video.category === 'bts') { categoryText = 'Behind the Scenes'; categoryTextSi = 'තිර පිටුපස'; }
+                        else if(video.category === 'lip-sync') { categoryText = 'Lip Sync Music Video'; categoryTextSi = 'තොල් සමමුහුර්ත සංගීත වීඩියෝ'; }
 
                         card.innerHTML = `
                             <div class="video-thumb">
