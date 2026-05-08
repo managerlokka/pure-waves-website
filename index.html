@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pure Waves Productions | Cinematic AI Music Videos</title>
+    <title>Pure Waves Productions | Cinematic AI Music Videos, Image Editing & Audio Services</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
@@ -877,6 +879,70 @@
             font-weight: bold;
         }
 
+        .pricing-price-dual {
+            margin-bottom: 2rem;
+        }
+        .pricing-price-dual .price-lkr {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        .pricing-price-dual .price-usd {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+        .pricing-btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+        .pricing-btn-group .btn {
+            width: 100%;
+            text-align: center;
+        }
+        .paypal-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #0070ba;
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+        }
+        .paypal-btn:hover {
+            background: #005ea6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 112, 186, 0.3);
+        }
+        .paypal-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        .intl-badge {
+            display: inline-block;
+            background: rgba(0, 112, 186, 0.15);
+            border: 1px solid rgba(0, 112, 186, 0.3);
+            color: #4da6e8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
         /* FAQ Section */
         .faq-container {
             max-width: 800px;
@@ -1000,8 +1066,8 @@
         <div class="hero-content">
             <img src="Pure Waves Logo.png" alt="Pure Waves Logo" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 1.5rem; opacity: 0; transform: translateY(30px); animation: fadeUp 1s ease forwards 0.2s; box-shadow: 0 10px 30px rgba(0, 224, 192, 0.2); border: 2px solid rgba(0, 224, 192, 0.3);">
             <h1 class="hero-title">Pure Waves Productions</h1>
-            <p class="hero-tagline" data-en="Cinematic AI Music Videos for Modern Artists" data-si="නවීන කලාකරුවන් සඳහා සිනමාත්මක AI සංගීත වීඩියෝ">Cinematic AI Music Videos for Modern Artists</p>
-            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: -1.5rem; margin-bottom: 2.5rem; opacity: 0; transform: translateY(30px); animation: fadeUp 1s ease forwards 0.9s;" data-en="Powered by the latest AI video generation technology" data-si="නවතම AI වීඩියෝ උත්පාදන තාක්ෂණයෙන් බලගැන්වේ">Powered by the latest AI video generation technology</p>
+            <p class="hero-tagline" data-en="Cinematic AI Music Videos · Image Editing · Audio Production" data-si="සිනමාත්මක AI සංගීත වීඩියෝ · රූප සංස්කරණය · ශ්‍රව්‍ය නිෂ්පාදනය">Cinematic AI Music Videos · Image Editing · Audio Production</p>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: -1.5rem; margin-bottom: 2.5rem; opacity: 0; transform: translateY(30px); animation: fadeUp 1s ease forwards 0.9s;" data-en="Powered by the latest AI technology for video, visuals & sound" data-si="වීඩියෝ, දෘශ්‍ය සහ ශබ්ද සඳහා නවතම AI තාක්ෂණයෙන් බලගැන්වේ">Powered by the latest AI technology for video, visuals & sound</p>
             <div class="hero-btn">
                 <a href="#work" class="btn btn-primary" data-en="Watch Our Work" data-si="අපගේ කාර්ය බලන්න">Watch Our Work</a>
                 <div style="margin-top: 1rem;">
@@ -1047,31 +1113,218 @@
                 
                 <!-- Category 1: Advertising Videos -->
                 <div class="pricing-card" style="display: flex; flex-direction: column;">
-                    <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🎯 Advertising Videos" data-si="🎯 ප්‍රචාරණ වීඩියෝ">🎯 Advertising Videos</h3>
+                    <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🎬 Video Production" data-si="🎬 වීඩියෝ නිෂ්පාදනය">🎬 Video Production</h3>
+                    <div class="intl-badge">International Service</div>
                     <h4 class="pricing-title" data-en="30 Sec Ad" data-si="තත්පර 30 දැන්වීම">30 Sec Ad</h4>
-                    <div class="pricing-price" id="ad-price-display">Rs. 5,000</div>
+                    <div class="pricing-price-dual">
+                        <div class="price-lkr">Rs. 5,000</div>
+                        <div class="price-usd">$15 USD</div>
+                    </div>
                     <ul class="pricing-features" style="flex-grow: 1;">
                         <li data-en="1080p Full HD" data-si="1080p පූර්ණ HD">1080p Full HD</li>
                         <li data-en="Color Graded" data-si="වර්ණ ශ්‍රේණිගත කිරීම">Color Graded</li>
                         <li data-en="Unlimited Revisions" data-si="අසීමිත සංශෝධන">Unlimited Revisions</li>
-                        <li data-en="Custom durations available" data-si="අභිරුචි කාලසීමාවන් ලබා ගත හැකිය">Custom durations available</li>
                     </ul>
-                    <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20the%2030%20Sec%20Advertising%20Video%20package." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Get This Package" data-si="මෙම පැකේජය ලබාගන්න">Get This Package</a>
+                    <div class="pricing-btn-group">
+                        <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20the%2030%20Sec%20Advertising%20Video%20package." target="_blank" class="btn btn-primary" data-en="Order on WhatsApp" data-si="WhatsApp හරහා ඇණවුම් කරන්න">Order on WhatsApp</a>
+                        <a href="https://paypal.me/gamedotro/15" target="_blank" class="paypal-btn">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.11c-.473 0-.867.35-.94.816l-1.31 8.358zM19.018 7.398a7.086 7.086 0 0 0-.256-.475 4.544 4.544 0 0 0-1.89-1.573c-1.393-.604-3.51-.604-5.692-.604H6.837l-2.61 16.59h3.766l1.09-6.953c.074-.467.467-.816.94-.816h2.11c3.555 0 6.22-1.385 6.946-5.244.025-.13.045-.262.064-.393a6.452 6.452 0 0 0-.125-.532z"/></svg>
+                            Pay with PayPal
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Category 2: Music Videos -->
                 <div class="pricing-card" style="display: flex; flex-direction: column;">
                     <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🎵 Music Videos" data-si="🎵 සංගීත වීඩියෝ">🎵 Music Videos</h3>
+                    <div class="intl-badge">International Service</div>
                     <h4 class="pricing-title" data-en="30 Sec Music Video" data-si="තත්පර 30 සංගීත වීඩියෝව">30 Sec Music Video</h4>
-                    <div class="pricing-price" id="mv-price-display">Rs. 7,500</div>
+                    <div class="pricing-price-dual">
+                        <div class="price-lkr">Rs. 7,500</div>
+                        <div class="price-usd">$25 USD</div>
+                    </div>
                     <ul class="pricing-features" style="flex-grow: 1;">
                         <li data-en="1080p Full HD + Color Grade" data-si="1080p පූර්ණ HD + වර්ණ ශ්‍රේණිගත කිරීම">1080p Full HD + Color Grade</li>
                         <li data-en="Lip Sync Included" data-si="තොල් සමමුහුර්තකරණය ඇතුළත් වේ">Lip Sync Included</li>
-                        <li data-en="1 Coming Soon Image & Video Post" data-si="1 'ළඟදීම' පින්තූර සහ වීඩියෝ පළ කිරීමක්">1 Coming Soon Image & Video Post</li>
-                        <li data-en="1 Custom Thumbnail" data-si="1 අභිරුචි සිඟිති රූපයක්">1 Custom Thumbnail</li>
                         <li data-en="Unlimited Revisions" data-si="අසීමිත සංශෝධන">Unlimited Revisions</li>
                     </ul>
-                    <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20the%2030%20Sec%20Music%20Video%20package." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Get This Package" data-si="මෙම පැකේජය ලබාගන්න">Get This Package</a>
+                    <div class="pricing-btn-group">
+                        <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20the%2030%20Sec%20Music%20Video%20package." target="_blank" class="btn btn-primary" data-en="Order on WhatsApp" data-si="WhatsApp හරහා ඇණවුම් කරන්න">Order on WhatsApp</a>
+                        <a href="https://paypal.me/gamedotro/25" target="_blank" class="paypal-btn">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.11c-.473 0-.867.35-.94.816l-1.31 8.358zM19.018 7.398a7.086 7.086 0 0 0-.256-.475 4.544 4.544 0 0 0-1.89-1.573c-1.393-.604-3.51-.604-5.692-.604H6.837l-2.61 16.59h3.766l1.09-6.953c.074-.467.467-.816.94-.816h2.11c3.555 0 6.22-1.385 6.946-5.244.025-.13.045-.262.064-.393a6.452 6.452 0 0 0-.125-.532z"/></svg>
+                            Pay with PayPal
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 3: Image Editing -->
+                <div class="pricing-card" style="display: flex; flex-direction: column;">
+                    <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🖼️ Image Editing" data-si="🖼️ රූප සංස්කරණය">🖼️ Image Editing</h3>
+                    <div class="intl-badge">International Service</div>
+                    <h4 class="pricing-title" data-en="Thumbnail Design" data-si="සිඟිති රූප නිර්මාණය">Thumbnail Design</h4>
+                    <div class="pricing-price-dual">
+                        <div class="price-lkr">Rs. 4,000</div>
+                        <div class="price-usd">$12 USD</div>
+                    </div>
+                    <ul class="pricing-features" style="flex-grow: 1;">
+                        <li data-en="Custom High-Quality Design" data-si="අභිරුචි උසස් තත්ත්වයේ නිර්මාණය">Custom High-Quality Design</li>
+                        <li data-en="Click-Optimized" data-si="ප්‍රේක්ෂණ සඳහා ප්‍රශස්ත කර ඇත">Click-Optimized</li>
+                    </ul>
+                    <div class="pricing-btn-group">
+                        <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20Thumbnail%20Design." target="_blank" class="btn btn-primary" data-en="Order on WhatsApp" data-si="WhatsApp හරහා ඇණවුම් කරන්න">Order on WhatsApp</a>
+                        <a href="https://paypal.me/gamedotro/12" target="_blank" class="paypal-btn">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.11c-.473 0-.867.35-.94.816l-1.31 8.358zM19.018 7.398a7.086 7.086 0 0 0-.256-.475 4.544 4.544 0 0 0-1.89-1.573c-1.393-.604-3.51-.604-5.692-.604H6.837l-2.61 16.59h3.766l1.09-6.953c.074-.467.467-.816.94-.816h2.11c3.555 0 6.22-1.385 6.946-5.244.025-.13.045-.262.064-.393a6.452 6.452 0 0 0-.125-.532z"/></svg>
+                            Pay with PayPal
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pricing-card" style="display: flex; flex-direction: column;">
+                    <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🖼️ Image Editing" data-si="🖼️ රූප සංස්කරණය">🖼️ Image Editing</h3>
+                    <div class="intl-badge">International Service</div>
+                    <h4 class="pricing-title" data-en="Album Cover Art" data-si="ඇල්බම කවර කලාව">Album Cover Art</h4>
+                    <div class="pricing-price-dual">
+                        <div class="price-lkr">Rs. 3,500</div>
+                        <div class="price-usd">$10 USD</div>
+                    </div>
+                    <ul class="pricing-features" style="flex-grow: 1;">
+                        <li data-en="High-Resolution Artwork" data-si="අධි-විභේදන කලා කෘති">High-Resolution Artwork</li>
+                        <li data-en="Ready for Streaming Platforms" data-si="ප්‍රවාහ වේදිකා සඳහා සූදානම්">Ready for Streaming Platforms</li>
+                    </ul>
+                    <div class="pricing-btn-group">
+                        <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20Album%20Cover%20Art." target="_blank" class="btn btn-primary" data-en="Order on WhatsApp" data-si="WhatsApp හරහා ඇණවුම් කරන්න">Order on WhatsApp</a>
+                        <a href="https://paypal.me/gamedotro/10" target="_blank" class="paypal-btn">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.11c-.473 0-.867.35-.94.816l-1.31 8.358zM19.018 7.398a7.086 7.086 0 0 0-.256-.475 4.544 4.544 0 0 0-1.89-1.573c-1.393-.604-3.51-.604-5.692-.604H6.837l-2.61 16.59h3.766l1.09-6.953c.074-.467.467-.816.94-.816h2.11c3.555 0 6.22-1.385 6.946-5.244.025-.13.045-.262.064-.393a6.452 6.452 0 0 0-.125-.532z"/></svg>
+                            Pay with PayPal
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pricing-card" style="display: flex; flex-direction: column;">
+                    <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🖼️ Image Editing" data-si="🖼️ රූප සංස්කරණය">🖼️ Image Editing</h3>
+                    <div class="intl-badge">International Service</div>
+                    <h4 class="pricing-title" data-en="Photo Retouching" data-si="ඡායාරූප ප්‍රතිනිර්මාණය">Photo Retouching</h4>
+                    <div class="pricing-price-dual">
+                        <div class="price-lkr">Rs. 3,000</div>
+                        <div class="price-usd">$10 USD</div>
+                    </div>
+                    <ul class="pricing-features" style="flex-grow: 1;">
+                        <li data-en="Professional Skin Retouching" data-si="වෘත්තීය සම ප්‍රතිනිර්මාණය">Professional Skin Retouching</li>
+                        <li data-en="Color Correction & Grading" data-si="වර්ණ නිවැරදි කිරීම">Color Correction & Grading</li>
+                    </ul>
+                    <div class="pricing-btn-group">
+                        <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20Photo%20Retouching." target="_blank" class="btn btn-primary" data-en="Order on WhatsApp" data-si="WhatsApp හරහා ඇණවුම් කරන්න">Order on WhatsApp</a>
+                        <a href="https://paypal.me/gamedotro/10" target="_blank" class="paypal-btn">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.11c-.473 0-.867.35-.94.816l-1.31 8.358zM19.018 7.398a7.086 7.086 0 0 0-.256-.475 4.544 4.544 0 0 0-1.89-1.573c-1.393-.604-3.51-.604-5.692-.604H6.837l-2.61 16.59h3.766l1.09-6.953c.074-.467.467-.816.94-.816h2.11c3.555 0 6.22-1.385 6.946-5.244.025-.13.045-.262.064-.393a6.452 6.452 0 0 0-.125-.532z"/></svg>
+                            Pay with PayPal
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pricing-card" style="display: flex; flex-direction: column;">
+                    <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🖼️ Image Editing" data-si="🖼️ රූප සංස්කරණය">🖼️ Image Editing</h3>
+                    <div class="intl-badge">International Service</div>
+                    <h4 class="pricing-title" data-en="Social Media Graphics" data-si="සමාජ මාධ්‍ය ග්‍රැෆික්ස්">Social Media Graphics</h4>
+                    <div class="pricing-price-dual">
+                        <div class="price-lkr">Rs. 3,000+</div>
+                        <div class="price-usd">$10+ USD</div>
+                    </div>
+                    <ul class="pricing-features" style="flex-grow: 1;">
+                        <li data-en="Custom Branded Graphics" data-si="අභිරුචි වෙළඳ නාම ග්‍රැෆික්ස්">Custom Branded Graphics</li>
+                        <li data-en="Ready for Instagram/Facebook" data-si="Instagram/Facebook සඳහා සූදානම්">Ready for Instagram/Facebook</li>
+                    </ul>
+                    <div class="pricing-btn-group">
+                        <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20Social%20Media%20Graphics." target="_blank" class="btn btn-primary" data-en="Order on WhatsApp" data-si="WhatsApp හරහා ඇණවුම් කරන්න">Order on WhatsApp</a>
+                        <a href="https://paypal.me/gamedotro/10" target="_blank" class="paypal-btn">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.11c-.473 0-.867.35-.94.816l-1.31 8.358zM19.018 7.398a7.086 7.086 0 0 0-.256-.475 4.544 4.544 0 0 0-1.89-1.573c-1.393-.604-3.51-.604-5.692-.604H6.837l-2.61 16.59h3.766l1.09-6.953c.074-.467.467-.816.94-.816h2.11c3.555 0 6.22-1.385 6.946-5.244.025-.13.045-.262.064-.393a6.452 6.452 0 0 0-.125-.532z"/></svg>
+                            Pay with PayPal
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 4: Audio Services -->
+                <div class="pricing-card" style="display: flex; flex-direction: column;">
+                    <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🎧 Audio Services" data-si="🎧 ශ්‍රව්‍ය සේවාවන්">🎧 Audio Services</h3>
+                    <div class="intl-badge">International Service</div>
+                    <h4 class="pricing-title" data-en="AI Voice Over" data-si="AI හඬ ප්‍රකාශන">AI Voice Over <span style="font-size: 1rem; font-weight: normal; color: var(--text-secondary);">(30 sec)</span></h4>
+                    <div class="pricing-price-dual">
+                        <div class="price-lkr">Rs. 5,000</div>
+                        <div class="price-usd">$15 USD</div>
+                    </div>
+                    <ul class="pricing-features" style="flex-grow: 1;">
+                        <li data-en="Natural Sounding Voices" data-si="ස්වාභාවික හඬ">Natural Sounding Voices</li>
+                        <li data-en="Multiple Languages & Tones" data-si="බහු භාෂා සහ ස්වර">Multiple Languages & Tones</li>
+                    </ul>
+                    <div class="pricing-btn-group">
+                        <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20AI%20Voice%20Over." target="_blank" class="btn btn-primary" data-en="Order on WhatsApp" data-si="WhatsApp හරහා ඇණවුම් කරන්න">Order on WhatsApp</a>
+                        <a href="https://paypal.me/gamedotro/15" target="_blank" class="paypal-btn">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.11c-.473 0-.867.35-.94.816l-1.31 8.358zM19.018 7.398a7.086 7.086 0 0 0-.256-.475 4.544 4.544 0 0 0-1.89-1.573c-1.393-.604-3.51-.604-5.692-.604H6.837l-2.61 16.59h3.766l1.09-6.953c.074-.467.467-.816.94-.816h2.11c3.555 0 6.22-1.385 6.946-5.244.025-.13.045-.262.064-.393a6.452 6.452 0 0 0-.125-.532z"/></svg>
+                            Pay with PayPal
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pricing-card" style="display: flex; flex-direction: column;">
+                    <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🎧 Audio Services" data-si="🎧 ශ්‍රව්‍ය සේවාවන්">🎧 Audio Services</h3>
+                    <div class="intl-badge">International Service</div>
+                    <h4 class="pricing-title" data-en="Song Mastering" data-si="ගීත මාස්ටරින්">Song Mastering</h4>
+                    <div class="pricing-price-dual">
+                        <div class="price-lkr">Rs. 6,000</div>
+                        <div class="price-usd">$20 USD</div>
+                    </div>
+                    <ul class="pricing-features" style="flex-grow: 1;">
+                        <li data-en="Radio-Ready Quality" data-si="රේඩියෝ-සූදානම් ගුණාත්මකභාවය">Radio-Ready Quality</li>
+                        <li data-en="Streaming Optimized" data-si="ප්‍රවාහ සඳහා ප්‍රශස්ත කර ඇත">Streaming Optimized</li>
+                    </ul>
+                    <div class="pricing-btn-group">
+                        <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20Song%20Mastering." target="_blank" class="btn btn-primary" data-en="Order on WhatsApp" data-si="WhatsApp හරහා ඇණවුම් කරන්න">Order on WhatsApp</a>
+                        <a href="https://paypal.me/gamedotro/20" target="_blank" class="paypal-btn">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.11c-.473 0-.867.35-.94.816l-1.31 8.358zM19.018 7.398a7.086 7.086 0 0 0-.256-.475 4.544 4.544 0 0 0-1.89-1.573c-1.393-.604-3.51-.604-5.692-.604H6.837l-2.61 16.59h3.766l1.09-6.953c.074-.467.467-.816.94-.816h2.11c3.555 0 6.22-1.385 6.946-5.244.025-.13.045-.262.064-.393a6.452 6.452 0 0 0-.125-.532z"/></svg>
+                            Pay with PayPal
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pricing-card" style="display: flex; flex-direction: column;">
+                    <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🎧 Audio Services" data-si="🎧 ශ්‍රව්‍ය සේවාවන්">🎧 Audio Services</h3>
+                    <div class="intl-badge">International Service</div>
+                    <h4 class="pricing-title" data-en="Soundtrack & Beat Design" data-si="සවුන්ඩ්ට්‍රැක් සහ බීට් නිර්මාණය">Soundtrack & Beat Design</h4>
+                    <div class="pricing-price-dual">
+                        <div class="price-lkr">Rs. 8,000</div>
+                        <div class="price-usd">$25 USD</div>
+                    </div>
+                    <ul class="pricing-features" style="flex-grow: 1;">
+                        <li data-en="Original Custom Compositions" data-si="මුල් අභිරුචි නිර්මාණ">Original Custom Compositions</li>
+                        <li data-en="Commercial Rights Included" data-si="වාණිජ අයිතිවාසිකම් ඇතුළත් වේ">Commercial Rights Included</li>
+                    </ul>
+                    <div class="pricing-btn-group">
+                        <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20Soundtrack%20%26%20Beat%20Design." target="_blank" class="btn btn-primary" data-en="Order on WhatsApp" data-si="WhatsApp හරහා ඇණවුම් කරන්න">Order on WhatsApp</a>
+                        <a href="https://paypal.me/gamedotro/25" target="_blank" class="paypal-btn">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.11c-.473 0-.867.35-.94.816l-1.31 8.358zM19.018 7.398a7.086 7.086 0 0 0-.256-.475 4.544 4.544 0 0 0-1.89-1.573c-1.393-.604-3.51-.604-5.692-.604H6.837l-2.61 16.59h3.766l1.09-6.953c.074-.467.467-.816.94-.816h2.11c3.555 0 6.22-1.385 6.946-5.244.025-.13.045-.262.064-.393a6.452 6.452 0 0 0-.125-.532z"/></svg>
+                            Pay with PayPal
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pricing-card" style="display: flex; flex-direction: column;">
+                    <h3 class="package-category-title" style="margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 224, 192, 0.2); margin-bottom: 1.5rem;" data-en="🎧 Audio Services" data-si="🎧 ශ්‍රව්‍ය සේවාවන්">🎧 Audio Services</h3>
+                    <div class="intl-badge">International Service</div>
+                    <h4 class="pricing-title" data-en="Audio Mixing" data-si="ශ්‍රව්‍ය මිශ්‍රණය">Audio Mixing</h4>
+                    <div class="pricing-price-dual">
+                        <div class="price-lkr">Rs. 5,000</div>
+                        <div class="price-usd">$15 USD</div>
+                    </div>
+                    <ul class="pricing-features" style="flex-grow: 1;">
+                        <li data-en="Professional Multi-Track Mix" data-si="වෘත්තීය බහු-පථ මිශ්‍රණය">Professional Multi-Track Mix</li>
+                        <li data-en="Vocal Enhancement & Cleanup" data-si="හඬ වැඩිදියුණු කිරීම සහ පිරිසිදු කිරීම">Vocal Enhancement & Cleanup</li>
+                    </ul>
+                    <div class="pricing-btn-group">
+                        <a href="https://wa.me/94767012065?text=Hello%20Chaminda,%20I'm%20interested%20in%20Audio%20Mixing." target="_blank" class="btn btn-primary" data-en="Order on WhatsApp" data-si="WhatsApp හරහා ඇණවුම් කරන්න">Order on WhatsApp</a>
+                        <a href="https://paypal.me/gamedotro/15" target="_blank" class="paypal-btn">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.11c-.473 0-.867.35-.94.816l-1.31 8.358zM19.018 7.398a7.086 7.086 0 0 0-.256-.475 4.544 4.544 0 0 0-1.89-1.573c-1.393-.604-3.51-.604-5.692-.604H6.837l-2.61 16.59h3.766l1.09-6.953c.074-.467.467-.816.94-.816h2.11c3.555 0 6.22-1.385 6.946-5.244.025-.13.045-.262.064-.393a6.452 6.452 0 0 0-.125-.532z"/></svg>
+                            Pay with PayPal
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -1108,8 +1361,8 @@
                     </div>
                 </div>
                 <div class="about-content" style="max-width: 100%; padding: 0;">
-                    <p class="about-text" style="text-align: left; font-size: 1.1rem; line-height: 1.8;" data-en="Pure Waves Productions is a premium Sri Lankan music video production company specializing in cinematic music videos, brand visuals, and artist promotion content. We merge visual storytelling with high-end cinematography to elevate artists and bring their sonic vision to the screen. Every frame is crafted with precision to resonate globally." data-si="Pure Waves Productions යනු සිනමාත්මක සංගීත වීඩියෝ, වෙළඳ නාම දෘශ්‍ය සහ කලාකරු ප්‍රවර්ධන අන්තර්ගතයන් සඳහා විශේෂීකරණය වූ ශ්‍රී ලාංකික සංගීත වීඩියෝ නිෂ්පාදන සමාගමකි. සෑම රාමුවක්ම නිරවද්‍යතාවයෙන් නිර්මාණය කෙරේ.">
-                        Pure Waves Productions is a premium Sri Lankan music video production company specializing in cinematic music videos, brand visuals, and artist promotion content. We merge visual storytelling with high-end cinematography to elevate artists and bring their sonic vision to the screen. Every frame is crafted with precision to resonate globally.
+                    <p class="about-text" style="text-align: left; font-size: 1.1rem; line-height: 1.8;" data-en="Pure Waves Productions is a premium Sri Lankan creative production studio specializing in cinematic AI music videos, professional image editing & thumbnail design, and high-quality audio services including voice overs, song mastering, and soundtrack creation. We merge visual storytelling with cutting-edge AI technology to elevate artists and brands. Every project is crafted with precision to resonate globally." data-si="Pure Waves Productions යනු සිනමාත්මක AI සංගීත වීඩියෝ, වෘත්තීය රූප සංස්කරණය, සිඟිති රූප නිර්මාණය සහ හඬ ප්‍රකාශන, ගීත මාස්ටරින් ඇතුළු උසස් ශ්‍රව්‍ය සේවාවන් සඳහා විශේෂීකරණය වූ ශ්‍රී ලාංකික නිර්මාණ නිෂ්පාදන ආයතනයකි.">
+                        Pure Waves Productions is a premium Sri Lankan creative production studio specializing in cinematic AI music videos, professional image editing & thumbnail design, and high-quality audio services including voice overs, song mastering, and soundtrack creation. We merge visual storytelling with cutting-edge AI technology to elevate artists and brands. Every project is crafted with precision to resonate globally.
                     </p>
                 </div>
             </div>
@@ -1160,23 +1413,85 @@
             <h2 class="section-title" data-en="What We Do" data-si="අප කරන්නේ කුමක්ද">What We Do</h2>
             <h3 class="section-subtitle" data-en="Our Expertise" data-si="අපගේ විශේෂඥතාව">Our Expertise</h3>
             
+            <!-- Video Production Services -->
+            <h4 class="package-category-title" style="margin-bottom: 2rem;" data-en="🎬 Video Production" data-si="🎬 වීඩියෝ නිෂ්පාදනය">🎬 Video Production</h4>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🎬</div>
                     <h4 class="service-title" data-en="Music Video Production" data-si="සංගීත වීඩියෝ නිෂ්පාදනය">Music Video Production</h4>
-                    <p class="service-desc" data-en="End-to-end cinematic video production. From concept development and storyboarding to shooting and high-end post-production, we bring your track to life visually." data-si="ආරම්භයේ සිට අවසානය දක්වා සිනමාත්මක වීඩියෝ නිෂ්පාදනය. සංකල්ප සංවර්ධනයේ සිට රූගත කිරීම් සහ උසස් පශ්චාත් නිෂ්පාදනය දක්වා අපි දෘශ්‍යමය වශයෙන් ඔබේ ගීතයට ජීවය ගෙන දෙන්නෙමු.">End-to-end cinematic video production. From concept development and storyboarding to shooting and high-end post-production, we bring your track to life visually.</p>
+                    <p class="service-desc" data-en="End-to-end cinematic video production. From concept development and storyboarding to shooting and high-end post-production, we bring your track to life visually." data-si="ආරම්භයේ සිට අවසානය දක්වා සිනමාත්මක වීඩියෝ නිෂ්පාදනය.">End-to-end cinematic video production. From concept development and storyboarding to shooting and high-end post-production, we bring your track to life visually.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">🎵</div>
                     <h4 class="service-title" data-en="Lyric Video Creation" data-si="ගීත වීඩියෝ නිර්මාණය">Lyric Video Creation</h4>
-                    <p class="service-desc" data-en="Engaging, custom-animated typography and motion graphics that keep your audience captivated and amplify the emotional impact of your lyrics." data-si="ඔබේ ප්‍රේක්ෂකයින් ආකර්ෂණය කරගන්නා සහ ඔබේ පද රචනයේ චිත්තවේගීය බලපෑම වැඩි කරන ආකර්ශනීය, අභිරුචි-සජීවිකරණ මුද්‍රණ ශිල්පය සහ චලන ග්‍රැෆික්ස්.">Engaging, custom-animated typography and motion graphics that keep your audience captivated and amplify the emotional impact of your lyrics.</p>
+                    <p class="service-desc" data-en="Engaging, custom-animated typography and motion graphics that keep your audience captivated and amplify the emotional impact of your lyrics." data-si="ඔබේ ප්‍රේක්ෂකයින් ආකර්ෂණය කරගන්නා ආකර්ශනීය, අභිරුචි-සජීවිකරණ මුද්‍රණ ශිල්පය සහ චලන ග්‍රැෆික්ස්.">Engaging, custom-animated typography and motion graphics that keep your audience captivated and amplify the emotional impact of your lyrics.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">📸</div>
                     <h4 class="service-title" data-en="Artist Photography & Branding" data-si="කලාකරු ඡායාරූපකරණය සහ වෙළඳ නාමකරණය">Artist Photography & Branding</h4>
-                    <p class="service-desc" data-en="Professional press shots, album cover art, and cohesive visual branding to establish a strong, memorable identity in the music industry." data-si="වෘත්තීය ඡායාරූප, ඇල්බම කවර කලාව සහ සංගීත කර්මාන්තය තුළ ශක්තිමත් අනන්‍යතාවයක් ගොඩනැගීම සඳහා සමෝධානික දෘශ්‍ය වෙළඳ නාමකරණය.">Professional press shots, album cover art, and cohesive visual branding to establish a strong, memorable identity in the music industry.</p>
+                    <p class="service-desc" data-en="Professional press shots, album cover art, and cohesive visual branding to establish a strong, memorable identity in the music industry." data-si="වෘත්තීය ඡායාරූප, ඇල්බම කවර කලාව සහ සංගීත කර්මාන්තය තුළ ශක්තිමත් අනන්‍යතාවයක් ගොඩනැගීම.">Professional press shots, album cover art, and cohesive visual branding to establish a strong, memorable identity in the music industry.</p>
+                </div>
+            </div>
+
+            <hr class="package-divider">
+
+            <!-- Image Editing Services -->
+            <h4 class="package-category-title" style="margin-bottom: 2rem;" data-en="🖼️ Image Editing & Design" data-si="🖼️ රූප සංස්කරණය සහ නිර්මාණය">🖼️ Image Editing & Design</h4>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h4 class="service-title" data-en="Thumbnail Design" data-si="සිඟිති රූප නිර්මාණය">Thumbnail Design</h4>
+                    <p class="service-desc" data-en="Eye-catching, click-worthy YouTube & social media thumbnails that boost your views. Custom designs with bold typography, vibrant colors, and professional composition." data-si="ඔබේ ප්‍රේක්ෂණ වැඩි කරන YouTube සහ සමාජ මාධ්‍ය සඳහා ආකර්ෂණීය සිඟිති රූප. තද මුද්‍රණ ශිල්පය, විචිත්‍ර වර්ණ සහ වෘත්තීය සංයුතිය.">Eye-catching, click-worthy YouTube & social media thumbnails that boost your views. Custom designs with bold typography, vibrant colors, and professional composition.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💿</div>
+                    <h4 class="service-title" data-en="Album & Cover Art" data-si="ඇල්බම සහ කවර කලාව">Album & Cover Art</h4>
+                    <p class="service-desc" data-en="Stunning album covers, single artwork, and playlist covers designed to stand out on Spotify, Apple Music, YouTube Music, and all major platforms." data-si="Spotify, Apple Music, YouTube Music සහ සියලුම ප්‍රධාන වේදිකා වල කැපී පෙනෙන ඇල්බම කවර, තනි කලා කෘති සහ ධාවන ලැයිස්තු කවර.">Stunning album covers, single artwork, and playlist covers designed to stand out on Spotify, Apple Music, YouTube Music, and all major platforms.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h4 class="service-title" data-en="Photo Retouching & Editing" data-si="ඡායාරූප ප්‍රතිනිර්මාණය සහ සංස්කරණය">Photo Retouching & Editing</h4>
+                    <p class="service-desc" data-en="Professional photo editing, background removal, color correction, skin retouching, and composite image creation for artists, brands, and social media content." data-si="කලාකරුවන්, වෙළඳ නාම සහ සමාජ මාධ්‍ය අන්තර්ගතය සඳහා වෘත්තීය ඡායාරූප සංස්කරණය, පසුබිම ඉවත් කිරීම, වර්ණ නිවැරදි කිරීම.">Professional photo editing, background removal, color correction, skin retouching, and composite image creation for artists, brands, and social media content.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h4 class="service-title" data-en="Social Media Graphics" data-si="සමාජ මාධ්‍ය ග්‍රැෆික්ස්">Social Media Graphics</h4>
+                    <p class="service-desc" data-en="Scroll-stopping Instagram posts, Facebook banners, YouTube channel art, and promotional flyers tailored to your brand identity and campaign goals." data-si="ඔබේ වෙළඳ නාම අනන්‍යතාවයට සහ ව්‍යාපාර ඉලක්කවලට ගැලපෙන Instagram පළ කිරීම්, Facebook බැනර, YouTube නාලිකා කලාව.">Scroll-stopping Instagram posts, Facebook banners, YouTube channel art, and promotional flyers tailored to your brand identity and campaign goals.</p>
+                </div>
+            </div>
+
+            <hr class="package-divider">
+
+            <!-- Audio Services -->
+            <h4 class="package-category-title" style="margin-bottom: 2rem;" data-en="🎧 Audio Services" data-si="🎧 ශ්‍රව්‍ය සේවාවන්">🎧 Audio Services</h4>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎙️</div>
+                    <h4 class="service-title" data-en="AI Voice Over Design" data-si="AI හඬ ප්‍රකාශන නිර්මාණය">AI Voice Over Design</h4>
+                    <p class="service-desc" data-en="Professional AI-generated voice overs for ads, intros, narrations, and podcasts. Multiple languages, tones, and styles available with natural-sounding results." data-si="දැන්වීම්, හැඳින්වීම්, ආඛ්‍යාන සහ පොඩ්කාස්ට් සඳහා වෘත්තීය AI-උත්පාදිත හඬ ප්‍රකාශන. බහු භාෂා, ස්වර සහ මෝස්තර.">Professional AI-generated voice overs for ads, intros, narrations, and podcasts. Multiple languages, tones, and styles available with natural-sounding results.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎛️</div>
+                    <h4 class="service-title" data-en="Song Mastering" data-si="ගීත මාස්ටරින්">Song Mastering</h4>
+                    <p class="service-desc" data-en="Get your tracks radio-ready with professional audio mastering. We optimize loudness, clarity, stereo width, and dynamic range for all major streaming platforms." data-si="වෘත්තීය ශ්‍රව්‍ය මාස්ටරින් සමඟ ඔබේ ගීත රේඩියෝ-සූදානම් කරන්න. සියලුම ප්‍රධාන ප්‍රවාහ වේදිකා සඳහා ශබ්දය, පැහැදිලි බව ප්‍රශස්ත කරන්නෙමු.">Get your tracks radio-ready with professional audio mastering. We optimize loudness, clarity, stereo width, and dynamic range for all major streaming platforms.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎹</div>
+                    <h4 class="service-title" data-en="Soundtrack & Beat Design" data-si="සවුන්ඩ්ට්‍රැක් සහ බීට් නිර්මාණය">Soundtrack & Beat Design</h4>
+                    <p class="service-desc" data-en="Custom AI-assisted soundtrack creation, beat production, and background music for videos, podcasts, ads, and content creators. Original compositions tailored to your mood." data-si="වීඩියෝ, පොඩ්කාස්ට්, දැන්වීම් සඳහා අභිරුචි AI-සහාය සවුන්ඩ්ට්‍රැක් නිර්මාණය, බීට් නිෂ්පාදනය සහ පසුබිම් සංගීතය.">Custom AI-assisted soundtrack creation, beat production, and background music for videos, podcasts, ads, and content creators. Original compositions tailored to your mood.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔊</div>
+                    <h4 class="service-title" data-en="Audio Mixing & Enhancement" data-si="ශ්‍රව්‍ය මිශ්‍රණය සහ වැඩිදියුණු කිරීම">Audio Mixing & Enhancement</h4>
+                    <p class="service-desc" data-en="Professional multi-track mixing, noise removal, vocal enhancement, and audio cleanup. Perfect for musicians, podcasters, and content creators seeking polished sound." data-si="වෘත්තීය බහු-පථ මිශ්‍රණය, ශබ්ද ඉවත් කිරීම, හඬ වැඩිදියුණු කිරීම. සංගීතඥයින්, පොඩ්කාස්ටර්වරුන් සඳහා පරිපූර්ණ.">Professional multi-track mixing, noise removal, vocal enhancement, and audio cleanup. Perfect for musicians, podcasters, and content creators seeking polished sound.</p>
                 </div>
             </div>
         </div>
@@ -1268,7 +1583,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Pure <span>Waves</span></div>
-                <p style="color: var(--text-secondary);">We Don't Just Record Music — We Create Experiences</p>
+                <p style="color: var(--text-secondary);">Video · Image Editing · Audio — We Create Complete Experiences</p>
                 
                 <div class="social-links">
                     <a href="javascript:void(0)" class="social-link dynamic-facebook" aria-label="Facebook" target="_blank">
