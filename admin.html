@@ -267,18 +267,170 @@
             background: var(--accent-color);
             color: var(--bg-color);
         }
+
+        /* Login Overlay */
+        .login-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--bg-color);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .login-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .login-box {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(0, 224, 192, 0.2);
+            border-radius: 12px;
+            padding: 40px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .login-box img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 2px solid rgba(0, 224, 192, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 224, 192, 0.15);
+        }
+        .login-box h2 {
+            color: var(--accent-color);
+            margin: 0 0 8px;
+            font-size: 1.5rem;
+        }
+        .login-box p {
+            color: var(--text-secondary);
+            margin: 0 0 25px;
+            font-size: 0.9rem;
+        }
+        .login-input-wrap {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .login-input-wrap input {
+            width: 100%;
+            padding: 14px 45px 14px 16px;
+            background: var(--bg-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            font-family: 'Outfit', sans-serif;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        .login-input-wrap input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .login-input-wrap .toggle-pass {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 4px;
+            transition: color 0.2s;
+        }
+        .login-input-wrap .toggle-pass:hover {
+            color: var(--accent-color);
+        }
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .login-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 224, 192, 0.25);
+        }
+        .login-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .login-error {
+            color: #ff4757;
+            font-size: 0.85rem;
+            margin-top: 12px;
+            min-height: 20px;
+            font-weight: 600;
+        }
+        .admin-container.locked {
+            display: none;
+        }
+
+        /* Logout Button */
+        .btn-logout {
+            background: transparent;
+            border: 1px solid rgba(255, 71, 87, 0.4);
+            color: #ff4757;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        .btn-logout:hover {
+            background: #ff4757;
+            color: white;
+            border-color: #ff4757;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Login Overlay -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-box">
+            <img src="Pure Waves Logo.png" alt="Pure Waves">
+            <h2>Admin Panel</h2>
+            <p>Enter your password to access the dashboard</p>
+            <div class="login-input-wrap">
+                <input type="password" id="loginPassword" placeholder="Enter password" autocomplete="current-password">
+                <button class="toggle-pass" onclick="togglePasswordVisibility('loginPassword', this)" type="button">👁️</button>
+            </div>
+            <button class="login-btn" id="loginBtn" onclick="attemptLogin()">🔓 Unlock Admin</button>
+            <div class="login-error" id="loginError"></div>
+        </div>
+    </div>
+
     <div id="notification">Changes Saved!</div>
 
-    <div class="admin-container">
+    <div class="admin-container locked" id="adminContainer">
         <div class="header">
             <h1>Video Portfolio Admin</h1>
-            <div>
-                <a href="/" target="_blank" style="color: var(--text-secondary); margin-right: 20px; text-decoration: none;">View Live Site</a>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <a href="/" target="_blank" style="color: var(--text-secondary); text-decoration: none;">View Live Site</a>
                 <button class="btn" onclick="saveVideos()">💾 Save All Videos</button>
+                <button class="btn-logout" onclick="logout()">🚪 Logout</button>
             </div>
         </div>
 
@@ -330,6 +482,29 @@
         <div class="video-list" id="videoList">
             <!-- Videos rendered here -->
         </div>
+
+        <!-- Change Password Section -->
+        <div style="background-color: var(--bg-secondary); border: 1px solid rgba(255, 71, 87, 0.2); border-radius: 8px; padding: 20px; margin-top: 40px;">
+            <h2 style="margin-top: 0; color: #ff4757; font-size: 1.2rem; border-bottom: 1px solid rgba(255,71,87,0.15); padding-bottom: 10px;">🔒 Change Admin Password</h2>
+            <div class="video-details" style="grid-template-columns: 1fr 1fr 1fr;">
+                <div class="form-group">
+                    <label>Current Password</label>
+                    <input type="password" id="currentPassword" placeholder="Enter current password">
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" id="newPassword" placeholder="Enter new password">
+                </div>
+                <div class="form-group">
+                    <label>Confirm New Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">⚠️ Remember your new password — there is no recovery option</span>
+                <button class="btn" style="background: #ff4757;" onclick="changePassword()">🔒 Change Password</button>
+            </div>
+        </div>
     </div>
 
     <!-- Thumbnail Picker Modal -->
@@ -352,17 +527,146 @@
         const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
         let videos = [];
+        let storedPassword = null;
 
-        // Load settings
+        // ===== Authentication =====
+        const DEFAULT_PASSWORD = 'purewaves2026';
+
+        // Check session on load
+        if (sessionStorage.getItem('pw_admin_auth') === 'true') {
+            unlockAdmin();
+        }
+
+        // Enter key on password field
+        document.getElementById('loginPassword').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') attemptLogin();
+        });
+
+        // Load the stored password from Supabase
         supabaseClient.from('settings').select('*').limit(1).single().then(({ data, error }) => {
             if (data) {
-                document.getElementById('setting-whatsapp').value = data.whatsapp || '';
-                document.getElementById('setting-facebook').value = data.facebook || '';
-                document.getElementById('setting-youtube').value = data.youtube || '';
-                document.getElementById('setting-ad-price').value = data.ad_price || 5000;
-                document.getElementById('setting-mv-price').value = data.music_video_price || 7500;
+                storedPassword = data.admin_password || DEFAULT_PASSWORD;
+                // Only populate admin fields if already unlocked
+                if (sessionStorage.getItem('pw_admin_auth') === 'true') {
+                    populateSettings(data);
+                }
             }
         });
+
+        function populateSettings(data) {
+            document.getElementById('setting-whatsapp').value = data.whatsapp || '';
+            document.getElementById('setting-facebook').value = data.facebook || '';
+            document.getElementById('setting-youtube').value = data.youtube || '';
+            document.getElementById('setting-ad-price').value = data.ad_price || 5000;
+            document.getElementById('setting-mv-price').value = data.music_video_price || 7500;
+        }
+
+        async function attemptLogin() {
+            const input = document.getElementById('loginPassword').value;
+            const errorEl = document.getElementById('loginError');
+            const loginBtn = document.getElementById('loginBtn');
+
+            if (!input) {
+                errorEl.textContent = 'Please enter a password';
+                return;
+            }
+
+            loginBtn.disabled = true;
+            loginBtn.textContent = '⏳ Verifying...';
+
+            // If stored password hasn't loaded yet, fetch it
+            if (!storedPassword) {
+                const { data } = await supabaseClient.from('settings').select('admin_password').limit(1).single();
+                storedPassword = (data && data.admin_password) || DEFAULT_PASSWORD;
+            }
+
+            if (input === storedPassword) {
+                sessionStorage.setItem('pw_admin_auth', 'true');
+                errorEl.textContent = '';
+                unlockAdmin();
+                // Load settings data after login
+                const { data } = await supabaseClient.from('settings').select('*').limit(1).single();
+                if (data) populateSettings(data);
+            } else {
+                errorEl.textContent = '❌ Incorrect password. Try again.';
+                document.getElementById('loginPassword').value = '';
+                document.getElementById('loginPassword').focus();
+            }
+
+            loginBtn.disabled = false;
+            loginBtn.textContent = '🔓 Unlock Admin';
+        }
+
+        function unlockAdmin() {
+            document.getElementById('loginOverlay').classList.add('hidden');
+            document.getElementById('adminContainer').classList.remove('locked');
+        }
+
+        function logout() {
+            sessionStorage.removeItem('pw_admin_auth');
+            document.getElementById('adminContainer').classList.add('locked');
+            document.getElementById('loginOverlay').classList.remove('hidden');
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('loginError').textContent = '';
+        }
+
+        function togglePasswordVisibility(inputId, btn) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.textContent = '🔒';
+            } else {
+                input.type = 'password';
+                btn.textContent = '👁️';
+            }
+        }
+
+        async function changePassword() {
+            const current = document.getElementById('currentPassword').value;
+            const newPass = document.getElementById('newPassword').value;
+            const confirm = document.getElementById('confirmPassword').value;
+
+            if (!current || !newPass || !confirm) {
+                alert('Please fill in all password fields.');
+                return;
+            }
+
+            if (current !== storedPassword) {
+                alert('❌ Current password is incorrect.');
+                return;
+            }
+
+            if (newPass.length < 4) {
+                alert('New password must be at least 4 characters.');
+                return;
+            }
+
+            if (newPass !== confirm) {
+                alert('❌ New passwords do not match.');
+                return;
+            }
+
+            const { error } = await supabaseClient.from('settings').upsert({
+                id: 1,
+                admin_password: newPass
+            });
+
+            if (!error) {
+                storedPassword = newPass;
+                document.getElementById('currentPassword').value = '';
+                document.getElementById('newPassword').value = '';
+                document.getElementById('confirmPassword').value = '';
+                const notif = document.getElementById('notification');
+                notif.textContent = '🔒 Password Changed!';
+                notif.style.transform = 'translateX(0)';
+                setTimeout(() => {
+                    notif.style.transform = 'translateX(200%)';
+                    setTimeout(() => notif.textContent = 'Changes Saved!', 300);
+                }, 3000);
+            } else {
+                alert('Error changing password: ' + error.message);
+            }
+        }
 
         async function saveSettings() {
             const settings = {
